@@ -1,0 +1,243 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: url("images/bg.jpg") center / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 30px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+h1 {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+.tagline {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  margin-bottom: 20px;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.links a {
+  text-decoration: none;
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  transition: 0.3s;
+}
+
+.links a:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateY(-2px);
+}
+
+/* Status container */
+.status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 10px 0 15px;
+  font-size: 0.9rem;
+}
+
+/* Image for status icon */
+.status-img {
+  width: 32px;       /* Adjust size as needed */
+  height: 32px;
+  transition: 0.3s;  /* Smooth hover animation */
+}
+
+.status-img:hover {
+  transform: scale(1.2);           /* Slight grow on hover */
+  filter: drop-shadow(0 0 4px gold); /* Glow effect */
+}
+
+.owner-controls {
+  display: none;
+  margin-top: 15px;
+  gap: 8px;
+}
+
+.owner-controls button {
+  background: rgba(255,255,255,0.1);
+  border: none;
+  padding: 6px 10px;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.owner-controls button:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  width: max-content;
+  background-color: rgba(0,0,0,0.8);
+  color: #fff;
+  text-align: center;
+  padding: 4px 8px;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 10;
+  bottom: 125%; /* above the icon */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 0.8rem;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal {
+  display: none; /* hidden by default */
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+  background: rgba(0,0,0,0.85);
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 600px;
+  text-align: center;
+  color: white;
+}
+
+.modal .close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal .close:hover {
+  color: white;
+}
+
+.services-title {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.service-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  gap: 10px; /* space between cards */
+  justify-content: start; /* grid starts from left */
+  width: 100%;
+  max-width: 500px;
+}
+
+.services-card {
+  background: rgba(255, 255, 255, 0.15); /* transparent background */
+  padding: 10px 10px;
+  border-radius: 12px;
+  transition: transform 0.3s, background 0.3s;
+  cursor: pointer;
+
+  width: 350px;   /* width of the card */
+  height: 100px;  /* smaller height for rectangle shape */
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* spreads title, description, price */
+}
+
+.services-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centers the whole grid container horizontally */
+  padding: 20px;
+  gap: 20px;
+}
+
+.title-icon {
+  width: 40px;         /* size of the title icon */
+  height: 40px;
+  vertical-align: middle; /* aligns with text */
+  margin-right: 10px;   /* space between icon and text */
+}
+
+.service-title {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.card-icon {
+  width: 24px;           /* smaller size for card icons */
+  vertical-align: middle;
+  margin-right: 6px;     /* space between icon and card title text */
+}
+
+.back-button {
+  margin-top: 20px;
+}
+
+.corner-message {
+  position: fixed;
+  bottom: 10px;
+  left: 12px;
+
+  font-size: 0.75rem;
+  opacity: 0.6;
+  color: #ffffff;
+
+  pointer-events: none; /* so it won't block clicks */
+  z-index: 999;
+}
