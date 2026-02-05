@@ -1,0 +1,113 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: url("images/bg.jpg") center / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+/* Container for all projects */
+.projects-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;      /* centers everything horizontally */
+  padding: 30px 20px;
+  gap: 20px;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Title of the page */
+.projects-container .services-title {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Grid for project cards */
+.project-cards {
+  display: center;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  gap: 10px; /* space between cards */
+  justify-content: start; /* grid starts from left */
+  width: 100%;
+  max-width: 500px;
+}
+
+/* Individual project card */
+.project-card {
+  background: rgba(255, 255, 255, 0.15); /* transparent background */
+  padding: 10px 10px;
+  border-radius: 12px;
+  transition: transform 0.3s, background 0.3s;
+  cursor: pointer;
+
+  width: 350px;   /* width of the card */
+  height: 120px;  /* smaller height for rectangle shape */
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* spreads title, description, price */
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Project title with optional icon */
+.project-title {
+  display: grid;
+  grid-template-columns: 30px 1fr; /* icon + text */
+  align-items: center;
+  column-gap: 10px;
+}
+
+.project-title img {
+  width: 30px;
+  height: 30px;
+}
+
+/* Back button */
+.back-button {
+  margin-top: 20px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Optional: smaller text in card */
+.project-card p {
+  font-size: 0.85rem;
+  margin: 5px 0;
+}
+
+.corner-message {
+  position: fixed;
+  bottom: 10px;
+  left: 12px;
+
+  font-size: 0.75rem;
+  opacity: 0.6;
+  color: #ffffff;
+
+  pointer-events: none; /* so it won't block clicks */
+  z-index: 999;
+}
